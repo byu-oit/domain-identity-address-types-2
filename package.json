@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/byu-oit/domain-identity-address-types.git"
+    "url": "git+https://github.com/byu-oit/domain-identity-address-types-v2.git"
   },
   "author": "",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/byu-oit/domain-identity-address-types-2/issues"
+    "url": "https://github.com/byu-oit/domain-identity-address-types-v2/issues"
   },
-  "homepage": "https://github.com/byu-oit/domain-identity-address-types-2#readme",
+  "homepage": "https://github.com/byu-oit/domain-identity-address-types-v2#readme",
   "private": true,
   "dependencies": {
     "aws-sdk": "^2.271.1",

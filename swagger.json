@@ -2,7 +2,7 @@
   "swagger": "2.0",
   "info": {
     "title": "identityAddressType",
-    "description": "==> Place your description here",
+    "description": "Address Types for CES School Identity",
     "version": "v1",
     "license": {
       "name": "Apache 2.0",
