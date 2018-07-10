@@ -1,0 +1,988 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "identityAddressType",
+    "description": "==> Place your description here",
+    "version": "v1",
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    }
+  },
+  "host": "api.byu.edu",
+  "schemes": [
+    "https"
+  ],
+  "basePath": "/domains/identity/address_types",
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/": {
+      "x-controller": "address_types",
+      "get": {
+        "summary": "identity Codes",
+        "description": "Retrieve a collection of address_types",
+        "operationId": "getAddressTypes",
+        "parameters": [
+          {
+            "name": "address_type_query",
+            "in": "query",
+            "description": "address_type query parameter.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "$ref": "#/parameters/page_start"
+          },
+          {
+            "$ref": "#/parameters/page_size"
+          }
+        ],
+        "tags": [
+          "identity",
+          "Codes"
+        ],
+        "responses": {
+          "200": {
+            "description": "A collection of address_types",
+            "schema": {
+              "$ref": "#/definitions/address_types"
+            },
+            "examples": {
+              "application/json": {
+                "$ref": "#/x-mock_json/address_types"
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/responses/400"
+          },
+          "401": {
+            "$ref": "#/responses/401"
+          },
+          "403": {
+            "$ref": "#/responses/403"
+          },
+          "409": {
+            "$ref": "#/responses/409"
+          },
+          "default": {
+            "$ref": "#/responses/default"
+          }
+        }
+      },
+      "post": {
+        "summary": "identity Codes",
+        "description": "Creates a address_type",
+        "operationId": "createAddressType",
+        "parameters": [
+          {
+            "name": "address_type",
+            "in": "body",
+            "description": "New address_type values",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/address_type_new"
+            }
+          }
+        ],
+        "tags": [
+          "identity",
+          "Codes"
+        ],
+        "responses": {
+          "201": {
+            "description": "address_type successfully created",
+            "schema": {
+              "$ref": "#/definitions/address_type_data"
+            },
+            "examples": {
+              "application/json": {
+                "$ref": "#/x-mock_json/address_types/values/0"
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/responses/400"
+          },
+          "401": {
+            "$ref": "#/responses/401"
+          },
+          "403": {
+            "$ref": "#/responses/403"
+          },
+          "409": {
+            "$ref": "#/responses/409"
+          },
+          "default": {
+            "$ref": "#/responses/default"
+          }
+        }
+      }
+    },
+    "/{address_type}": {
+      "x-controller": "address_type",
+      "parameters": [
+        { "$ref": "#/parameters/address_type" }
+      ],
+      "get": {
+        "summary": "identity Codes",
+        "description": "Retrieve a specific address_type",
+        "operationId": "getAddressType",
+        "tags": [
+          "identity",
+          "Codes"
+        ],
+        "responses": {
+          "200": {
+            "description": "A specific address_type",
+            "schema": {
+              "$ref": "#/definitions/address_type_data"
+            },
+            "examples": {
+              "application/json": {
+                "$ref": "#/x-mock_json/address_types/values/0"
+              }
+            }
+          },
+          "400": { "$ref": "#/responses/400" },
+          "401": { "$ref": "#/responses/401" },
+          "403": { "$ref": "#/responses/403" },
+          "404": {
+            "description": "There is no matching address_type",
+            "schema": {
+              "$ref": "#/definitions/error_response"
+            }
+          },
+          "409": { "$ref": "#/responses/409" },
+          "default": { "$ref": "#/responses/default" }
+        }
+      },
+      "put": {
+        "summary": "identity Codes",
+        "description": "Modify a address_type",
+        "operationId": "modifyAddressType",
+        "parameters": [
+          {
+            "name": "address_type_modify",
+            "in": "body",
+            "description": "Values required to modify a address_type",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/address_type_new"
+            }
+          }
+        ],
+        "tags": [
+          "identity",
+          "Codes"
+        ],
+        "responses": {
+          "200": {
+            "description": "address_type successfully Modified",
+            "schema": {
+              "$ref": "#/definitions/address_type_data"
+            },
+            "examples": {
+              "application/json": {
+                "$ref": "#/x-mock_json/address_types/values/0"
+              }
+            }
+          },
+          "400": { "$ref": "#/responses/400" },
+          "401": { "$ref": "#/responses/401" },
+          "403": { "$ref": "#/responses/403" },
+          "404": {
+            "description": "There is no matching address_type",
+            "schema": {
+              "$ref": "#/definitions/error_response"
+            }
+          },
+          "409": { "$ref": "#/responses/409" },
+          "default": { "$ref": "#/responses/default" }
+        }
+      },
+      "delete": {
+        "summary": "identity Codes",
+        "description": "Removes a address_type",
+        "operationId": "removeAddressType",
+        "tags": [
+          "identity",
+          "Codes"
+        ],
+        "responses": {
+          "204": {
+            "description": "address_type successfully Removed"
+          },
+          "400": { "$ref": "#/responses/400" },
+          "401": { "$ref": "#/responses/401" },
+          "403": { "$ref": "#/responses/403" },
+          "default": { "$ref": "#/responses/default" }
+        }
+      }
+    },
+    "/{address_type}/logs": {
+      "x-controller": "address_type_logs",
+      "parameters": [
+        { "$ref": "#/parameters/address_type" }
+      ],
+      "get": {
+        "summary": "identity Codes Archive",
+        "description": "Retrieve the collection of logs for a address_type",
+        "operationId": "getAddressTypeLogs",
+        "tags": [
+          "identity",
+          "Codes"
+        ],
+        "responses": {
+          "200": {
+            "description": "A collection of address_type Logs",
+            "schema": {
+              "$ref": "#/definitions/address_type_logs"
+            },
+            "examples": {
+              "application/json": {
+                "$ref": "#/x-mock_json/address_type_logs"
+              }
+            }
+          },
+          "400": { "$ref": "#/responses/400" },
+          "401": { "$ref": "#/responses/401" },
+          "403": { "$ref": "#/responses/403" },
+          "404": {
+            "description": "There is no matching address_type",
+            "schema": {
+              "$ref": "#/definitions/error_response"
+            }
+          },
+          "409": { "$ref": "#/responses/409" },
+          "default": { "$ref": "#/responses/default" }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "address_types": {
+      "description": "The address_type collection",
+      "type": "object",
+      "required": [
+        "values"
+      ],
+      "properties": {
+        "links": {
+          "description": "Hypermedia Links that impact the address_type collection",
+          "type": "object",
+          "properties": {
+            "address_types__info": {
+              "type": "object",
+              "properties": {
+                "rel": {
+                  "type": "string",
+                  "enum": [
+                    "self"
+                  ],
+                  "default": "self"
+                },
+                "href": {
+                  "type": "string",
+                  "format": "uri",
+                  "default": "https://api.byu.edu/domains/identity/address_types/v1?page_start=51&page_size=50"
+                },
+                "method": {
+                  "type": "string",
+                  "enum": [
+                    "GET"
+                  ],
+                  "default": "GET"
+                }
+              }
+            },
+            "address_types__prev": {
+              "type": "object",
+              "properties": {
+                "rel": {
+                  "type": "string",
+                  "enum": [
+                    "address_types__prev"
+                  ],
+                  "default": "address_types__prev"
+                },
+                "href": {
+                  "type": "string",
+                  "format": "uri",
+                  "default": "https://api.byu.edu/domains/identity/address_types/v1?page_start=:page_start&page_size=:page_size"
+                },
+                "method": {
+                  "type": "string",
+                  "enum": [
+                    "GET"
+                  ],
+                  "default": "GET"
+                }
+              }
+            },
+            "address_types__next": {
+              "type": "object",
+              "properties": {
+                "rel": {
+                  "type": "string",
+                  "enum": [
+                    "address_types__next"
+                  ],
+                  "default": "address_types__next"
+                },
+                "href": {
+                  "type": "string",
+                  "format": "uri",
+                  "default": "https://api.byu.edu/domains/identity/address_types/v1?page_start=:page_start1&page_size=:page_size"
+                },
+                "method": {
+                  "type": "string",
+                  "enum": [
+                    "GET"
+                  ],
+                  "default": "GET"
+                }
+              }
+            },
+            "address_types__create": {
+              "type": "object",
+              "properties": {
+                "rel": {
+                  "type": "string",
+                  "enum": [
+                    "address_types__create"
+                  ],
+                  "default": "address_types__create"
+                },
+                "href": {
+                  "type": "string",
+                  "format": "uri",
+                  "default": "https://api.byu.edu/domains/identity/address_types/v1"
+                },
+                "method": {
+                  "type": "string",
+                  "enum": [
+                    "POST"
+                  ],
+                  "default": "POST"
+                }
+              }
+            }
+          }
+        },
+        "metadata": {
+          "$ref": "#/definitions/sub_level_metadata"
+        },
+        "values": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/address_type_data"
+          }
+        }
+      },
+      "example": {
+        "$ref": "#/x-mock_json/address_types"
+      }
+    },
+    "address_type_data": {
+      "description": "A address_type",
+      "type": "object",
+      "properties": {
+        "links": {
+          "description": "Hypermedia Links that impact this address_type",
+          "type": "object",
+          "properties": {
+            "address_types__info": {
+              "description": "Hypermedia link to retrieve this address_type",
+              "type": "object",
+              "required": [
+                "rel",
+                "href",
+                "method"
+              ],
+              "properties": {
+                "rel": {
+                  "type": "string",
+                  "enum": [
+                    "self"
+                  ],
+                  "default": "self"
+                },
+                "href": {
+                  "type": "string",
+                  "format": "uri",
+                  "default": "https://api.byu.edu/domains/identity/address_types/v1/:address_type"
+                },
+                "method": {
+                  "type": "string",
+                  "enum": [
+                    "GET"
+                  ],
+                  "default": "GET"
+                }
+              }
+            },
+            "address_types__modify": {
+              "description": "Hypermedia link to modify this address_type",
+              "type": "object",
+              "required": [
+                "rel",
+                "href",
+                "method"
+              ],
+              "properties": {
+                "rel": {
+                  "type": "string",
+                  "enum": [
+                    "address_types__modify"
+                  ],
+                  "default": "address_types__modify"
+                },
+                "href": {
+                  "type": "string",
+                  "format": "uri",
+                  "default": "https://api.byu.edu/domains/identity/address_types/v1/:address_type"
+                },
+                "method": {
+                  "type": "string",
+                  "enum": [
+                    "PUT"
+                  ],
+                  "default": "PUT"
+                }
+              }
+            },
+            "address_types__remove": {
+              "description": "Hypermedia link to remove this address_type",
+              "type": "object",
+              "required": [
+                "rel",
+                "href",
+                "method"
+              ],
+              "properties": {
+                "rel": {
+                  "type": "string",
+                  "enum": [
+                    "address_types__remove"
+                  ],
+                  "default": "address_types__remove"
+                },
+                "href": {
+                  "type": "string",
+                  "format": "uri",
+                  "default": "https://api.byu.edu/domains/identity/address_types/v1/:address_type"
+                },
+                "method": {
+                  "type": "string",
+                  "enum": [
+                    "DELETE"
+                  ],
+                  "default": "DELETE"
+                }
+              }
+            }
+          }
+        },
+        "metadata": {
+          "$ref": "#/definitions/simple_metadata"
+        },
+        "address_type": {
+          "$ref": "#/definitions/address_type"
+        },
+        "description": {
+          "$ref": "#/definitions/description"
+        },
+        "long_description": {
+          "$ref": "#/definitions/long_description"
+        },
+        "active_status": {
+          "$ref": "#/definitions/active_status"
+        },
+        "updated_by_id": {
+          "$ref": "#/definitions/updated_by_id"
+        },
+        "date_time_updated": {
+          "$ref": "#/definitions/date_time_updated"
+        }
+      },
+      "example": {
+        "$ref": "#/x-mock_json/address_types/values/0"
+      }
+    },
+    "address_type_new": {
+      "description": "Elements required to add a new address_type",
+      "type": "object",
+      "properties": {
+        "address_type": {
+          "$ref": "#/definitions/address_type"
+        },
+        "description": {
+          "$ref": "#/definitions/description"
+        },
+        "long_description": {
+          "$ref": "#/definitions/long_description"
+        },
+        "active_status": {
+          "$ref": "#/definitions/active_status"
+        }
+     },
+      "example": {
+        "$ref": "#/x-mock_json/address_type_new"
+      }
+    },
+    "address_type_logs": {
+      "description": "Change Logs for address_type API",
+      "type": "object",
+      "properties": {
+        "links": {
+          "description": "Hypermedia Links that impact the log collection for address_type",
+          "type": "object",
+          "properties": {
+            "address_type_logs__info": {
+              "type": "object",
+              "properties": {
+                "rel": {
+                  "type": "string",
+                  "enum": [
+                    "self"
+                  ],
+                  "default": "self"
+                },
+                "href": {
+                  "type": "string",
+                  "format": "uri",
+                  "default": "https://api.byu.edu/domains/identity/address_types/v1/:address_type/logs?page_start=:page_start&page_size=:page_size"
+                },
+                "method": {
+                  "type": "string",
+                  "enum": [
+                    "GET"
+                  ],
+                  "default": "GET"
+                }
+              }
+            },
+            "address_type_logs__prev": {
+              "type": "object",
+              "properties": {
+                "rel": {
+                  "type": "string",
+                  "enum": [
+                    "address_type_logs__prev"
+                  ],
+                  "default": "address_type_logs__prev"
+                },
+                "href": {
+                  "type": "string",
+                  "format": "uri",
+                  "default": "https://api.byu.edu/domains/identity/address_types/v1/:address_type/logs?page_start=:page_start&page_size=:page_size"
+                },
+                "method": {
+                  "type": "string",
+                  "enum": [
+                    "GET"
+                  ],
+                  "default": "GET"
+                }
+              }
+            },
+            "address_type_logs__next": {
+              "type": "object",
+              "properties": {
+                "rel": {
+                  "type": "string",
+                  "enum": [
+                    "address_type_logs__next"
+                  ],
+                  "default": "address_type_logs__next"
+                },
+                "href": {
+                  "type": "string",
+                  "format": "uri",
+                  "default": "https://api.byu.edu/domains/identity/address_types/v1/:address_type/logs?page_start=:page_start1&page_size=:page_size"
+                },
+                "method": {
+                  "type": "string",
+                  "enum": [
+                    "GET"
+                  ],
+                  "default": "GET"
+                }
+              }
+            }
+          }
+        },
+        "metadata": {
+          "$ref": "#/definitions/sub_level_metadata"
+        },
+        "values": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/address_type_log"
+          }
+        }
+      },
+      "example": {
+        "$ref": "#/x-mock_json/address_type_logs"
+      }
+    },
+    "address_type_log": {
+      "description": "Change Log for address_type API",
+      "type": "object",
+      "properties": {
+        "log_id": {
+          "$ref": "#/definitions/log_id"
+        },
+        "log_action": {
+          "$ref": "#/definitions/log_action"
+        },
+        "address_type": {
+          "$ref": "#/definitions/address_type"
+        },
+        "description": {
+          "$ref": "#/definitions/description"
+        },
+        "long_description": {
+          "$ref": "#/definitions/long_description"
+        },
+        "active_status": {
+          "$ref": "#/definitions/active_status"
+        },
+        "updated_by_id": {
+          "$ref": "#/definitions/updated_by_id"
+        },
+        "date_time_updated": {
+          "$ref": "#/definitions/date_time_updated"
+        }
+      },
+      "example": {
+        "$ref": "#/x-mock_json/address_type_logs/values/0"
+      }
+    },
+    "error_response": {
+      "type": "object",
+      "required": ["metadata"],
+      "properties": {
+        "metadata": {
+          "$ref": "#/definitions/simple_metadata"
+        }
+      }
+    },
+    "simple_metadata": {
+      "type": "object",
+      "required": ["validation_response"],
+      "properties": {
+        "validation_response": {
+          "type": "object",
+          "required": [
+            "code",
+            "message"
+          ],
+          "properties": {
+            "code": {
+              "type": "integer"
+            },
+            "message": {
+              "type": "string"
+            }
+          }
+        },
+        "validation_information": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "cache": {
+          "description": "If data is from live source, value will be null, otherwise it will be date-time of cache",
+          "type": "object",
+          "properties": {
+            "date_time": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        }
+      }
+    },
+    "sub_level_metadata": {
+      "allOf": [
+        {
+          "type": "object",
+          "properties": {
+            "collection_size": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "page_start": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "page_end": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "page_size": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "default_page_size": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "max_page_size": {
+              "type": "integer"
+            }
+          }
+        },
+        {
+          "$ref": "#/definitions/simple_metadata"
+        }
+      ]
+    },
+    "address_type": {
+      "description": "address_type",
+      "type": "string",
+      "example": {
+        "$ref": "#/x-mock_json/address_types/values/0/address_type"
+      }
+    },
+    "active_status": {
+      "description": "Is the code currently active or only used for archive purposes?",
+      "type": "string",
+      "example": {
+        "$ref": "#/x-mock_json/address_types/values/0/active_status"
+      }
+    },
+    "date_time_updated": {
+      "description": "When was the address_type's data last updated?",
+      "type": "string",
+      "example": {
+        "$ref": "#/x-mock_json/address_types/values/0/date_time_updated"
+      }
+    },
+    "description": {
+      "description": "address_type Short Description",
+      "type": "string",
+      "example": {
+        "$ref": "#/x-mock_json/address_types/values/0/description"
+      }
+    },
+    "log_action": {
+      "description": "What function was performed on the address_type",
+      "type": "string",
+      "enum": [
+        "address_types__create",
+        "address_types__modify",
+        "address_types__remove"
+      ],
+      "example": { "$ref": "#/x-mock_json/address_type_logs/values/0/log_action" }
+    },
+    "log_id": {
+      "description": "Unique identifier assigned to each log record",
+      "type": "string",
+      "example": { "$ref": "#/x-mock_json/address_type_logs/values/0/log_id" }
+    },
+    "long_description": {
+      "description": "address_type Long Description",
+      "type": "string",
+      "example": {
+        "$ref": "#/x-mock_json/address_types/values/0/long_description"
+      }
+    },
+    "updated_by_id": {
+      "description": "Who last updated the address_type's data?",
+      "type": "string",
+      "example": {
+        "$ref": "#/x-mock_json/address_types/values/0/updated_by_id"
+      }
+    }
+  },
+  "parameters": {
+    "address_type": {
+      "name": "address_type",
+      "in": "path",
+      "description": "address_type path parameter",
+      "required": true,
+      "type": "string"
+    },
+    "page_start": {
+      "name": "page_start",
+      "in": "query",
+      "description": "Skip into a large collection to this item",
+      "required": false,
+      "type": "string"
+    },
+    "page_size": {
+      "name": "page_size",
+      "in": "query",
+      "description": "Return this many items of a large collection",
+      "required": false,
+      "type": "string"
+    }
+  },
+  "responses": {
+    "400": {
+      "description": "Invalid Request - unable to interpret request",
+      "schema": {
+        "$ref": "#/definitions/error_response"
+      }
+    },
+    "401": {
+      "description": "Authentication required to access data",
+      "schema": {
+        "$ref": "#/definitions/error_response"
+      }
+    },
+    "403": {
+      "description": "Access denied to protected data",
+      "schema": {
+        "$ref": "#/definitions/error_response"
+      }
+    },
+    "409": {
+      "description": "Query parameters conflict or are malformed",
+      "schema": {
+        "$ref": "#/definitions/error_response"
+      }
+    },
+    "default": {
+      "description": "Unexpected error",
+      "schema": {
+        "$ref": "#/definitions/error_response"
+      }
+    }
+  },
+  "x-mock_json": {
+    "address_types": {
+      "links": {
+        "address_types__info": {
+          "rel": "self",
+          "href": "https://api.byu.edu/domains/identity/address_types/v1?page_start=51&page_size=50",
+          "method": "GET"
+        },
+        "address_types__prev": {
+          "rel": "address_types__prev",
+          "href": "https://api.byu.edu/domains/identity/address_types/v1?page_start=1&page_size=50",
+          "method": "GET"
+        },
+        "address_types__next": {
+          "rel": "address_types__next",
+          "href": "https://api.byu.edu/domains/identity/address_types/v1?page_start=101&page_size=50",
+          "method": "GET"
+        },
+        "address_types__create": {
+          "rel": "address_types__create",
+          "href": "https://api.byu.edu/domains/identity/address_types/v1",
+          "method": "POST"
+        }
+      },
+      "metadata": {
+        "collection_size": 1,
+        "page_start": 1,
+        "page_end": 1,
+        "page_size": 1,
+        "default_page_size": 50,
+        "max_page_size": 1000,
+        "cache": {
+          "date_time": "2014-05-11T13:45:53.200Z"
+        },
+        "validation_response": {
+          "code": 200,
+          "message": "Retrieve Successful"
+        }
+      },
+      "values": [
+        {
+          "links": {
+            "address_types__info": {
+              "rel": "self",
+              "href": "https://api.byu.edu/domains/identity/address_types/v1/MAL",
+              "method": "GET"
+            },
+            "address_types__modify": {
+              "rel": "address_types__modify",
+              "href": "https://api.byu.edu/domains/identity/address_types/v1/MAL",
+              "method": "PUT"
+            },
+            "address_types__remove": {
+              "rel": "address_types__remove",
+              "href": "https://api.byu.edu/domains/identity/address_types/v1/MAL",
+              "method": "DELETE"
+            }
+          },
+          "metadata": {
+            "cache": {
+              "date_time": "2014-05-11T13:45:53.200Z"
+            },
+            "validation_response": {
+              "code": 200,
+              "message": "Successful"
+            }
+          },
+          "address_type": "MAL",
+          "description": "MAL",
+          "long_description": "MAL",
+          "active_status": "Y",
+          "updated_by_id": "111111111",
+          "date_time_updated": "2014-05-11T13:45:53.200Z"
+        }
+      ]
+    },
+    "address_type_logs": {
+      "links": {
+        "address_type_logs__info": {
+          "rel": "self",
+          "href": "https://api.byu.edu/domains/identity/address_types/v1/MAL/logs?page_start=51&page_size=50",
+          "method": "GET"
+        },
+        "address_type_logs__prev": {
+          "rel": "address_type_logs__prev",
+          "href": "https://api.byu.edu/domains/identity/address_types/v1/MAL/logs?page_start=1&page_size=50",
+          "method": "GET"
+        },
+        "address_type_logs__next": {
+          "rel": "address_type_logs__next",
+          "href": "https://api.byu.edu/domains/identity/address_types/v1/MAL/logs?page_start=101&page_size=50",
+          "method": "GET"
+        }
+      },
+      "metadata": {
+        "collection_size": 1,
+        "page_start": 1,
+        "page_end": 1,
+        "page_size": 1,
+        "default_page_size": 50,
+        "max_page_size": 1000,
+        "cache": {
+          "date_time": "2014-05-11T13:45:53.200Z"
+        },
+        "validation_response": {
+          "code": 200,
+          "message": "Successful"
+        }
+      },
+      "values": [
+        {
+          "log_id": "4128395402",
+          "log_action": "address_types__create",
+          "address_type": "MAL",
+          "description": "MAL",
+          "long_description": "MAL",
+          "active_status": "Y",
+          "updated_by_id": "111111111",
+          "date_time_updated": "2014-05-11T13:45:53.200Z"
+        }
+      ]
+    },
+    "address_type_new": {
+      "address_type": "MAL",
+      "description": "MAL",
+      "long_description": "MAL",
+      "active_status": "Y"
+    }
+  }
+}
