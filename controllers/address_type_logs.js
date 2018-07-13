@@ -24,5 +24,5 @@ exports.getAddressTypeLogs = function (req, res) {
 
 exports.getAddressTypeLogs.mock = function (req, res) {
   console.log("Invoked getAddressTypeLogs.mock")
-  res.send(req.swagger['x-mock_json'].address_type_logs);
+  res.send(req.swagger.root['x-mock_json'].address_type_logs);
 };

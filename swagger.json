@@ -21,7 +21,7 @@
     "/": {
       "x-controller": "address_types",
       "get": {
-        "summary": "identity Codes",
+        "summary": "Get all the Address Types",
         "description": "Retrieve a collection of address_types",
         "operationId": "getAddressTypes",
         "parameters": [
@@ -31,17 +31,10 @@
             "description": "address_type query parameter.",
             "required": false,
             "type": "string"
-          },
-          {
-            "$ref": "#/parameters/page_start"
-          },
-          {
-            "$ref": "#/parameters/page_size"
           }
         ],
         "tags": [
-          "identity",
-          "Codes"
+          "identity"
         ],
         "responses": {
           "200": {
@@ -73,8 +66,8 @@
         }
       },
       "post": {
-        "summary": "identity Codes",
-        "description": "Creates a address_type",
+        "summary": "Create Address Type",
+        "description": "Creates an address_type",
         "operationId": "createAddressType",
         "parameters": [
           {
@@ -88,8 +81,7 @@
           }
         ],
         "tags": [
-          "identity",
-          "Codes"
+          "identity"
         ],
         "responses": {
           "201": {
@@ -127,12 +119,11 @@
         { "$ref": "#/parameters/address_type" }
       ],
       "get": {
-        "summary": "identity Codes",
+        "summary": "Get one specific address type",
         "description": "Retrieve a specific address_type",
         "operationId": "getAddressType",
         "tags": [
-          "identity",
-          "Codes"
+          "identity"
         ],
         "responses": {
           "200": {
@@ -160,7 +151,7 @@
         }
       },
       "put": {
-        "summary": "identity Codes",
+        "summary": "update a specific address type",
         "description": "Modify a address_type",
         "operationId": "modifyAddressType",
         "parameters": [
@@ -175,8 +166,7 @@
           }
         ],
         "tags": [
-          "identity",
-          "Codes"
+          "identity"
         ],
         "responses": {
           "200": {
@@ -204,12 +194,11 @@
         }
       },
       "delete": {
-        "summary": "identity Codes",
-        "description": "Removes a address_type",
+        "summary": "delete a specific address type",
+        "description": "Removes an address_type",
         "operationId": "removeAddressType",
         "tags": [
-          "identity",
-          "Codes"
+          "identity"
         ],
         "responses": {
           "204": {
@@ -224,16 +213,17 @@
     },
     "/{address_type}/logs": {
       "x-controller": "address_type_logs",
-      "parameters": [
-        { "$ref": "#/parameters/address_type" }
-      ],
       "get": {
-        "summary": "identity Codes Archive",
+        "summary": "get a group of logs for a specific address type",
         "description": "Retrieve the collection of logs for a address_type",
         "operationId": "getAddressTypeLogs",
+        "parameters": [
+          { "$ref": "#/parameters/address_type" },
+          { "$ref": "#/parameters/page_start"   },
+          { "$ref": "#/parameters/page_size"    }
+        ],
         "tags": [
-          "identity",
-          "Codes"
+          "identity"
         ],
         "responses": {
           "200": {
@@ -528,7 +518,7 @@
         "active_status": {
           "$ref": "#/definitions/active_status"
         }
-     },
+      },
       "example": {
         "$ref": "#/x-mock_json/address_type_new"
       }
@@ -861,7 +851,7 @@
       "links": {
         "address_types__info": {
           "rel": "self",
-          "href": "https://api.byu.edu/domains/identity/address_types/v1?page_start=51&page_size=50",
+          "href": "https://api.byu.edu/domains/identity/address_types/v1",
           "method": "GET"
         },
         "address_types__prev": {
@@ -882,11 +872,6 @@
       },
       "metadata": {
         "collection_size": 1,
-        "page_start": 1,
-        "page_end": 1,
-        "page_size": 1,
-        "default_page_size": 50,
-        "max_page_size": 1000,
         "cache": {
           "date_time": "2014-05-11T13:45:53.200Z"
         },

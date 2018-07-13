@@ -24,7 +24,7 @@ exports.getAddressTypes = function (req, res) {
 
 exports.getAddressTypes.mock = function (req, res) {
   console.log("Invoked getAddressTypes.mock")
-  res.send(req.swagger['x-mock_json'].address_types);
+  res.send(req.swagger.root['x-mock_json'].address_types);
 };
 
 exports.createAddressType = function (req, res) {
@@ -34,5 +34,5 @@ exports.createAddressType = function (req, res) {
 
 exports.createAddressType.mock = function (req, res) {
   console.log("Invoked createAddressType.mock")
-  res.status(201).send(req.swagger['x-mock_json'].address_types.values[0]);
+  res.status(201).send(req.swagger.root['x-mock_json'].address_types.values[0]);
 };

@@ -1,0 +1,8 @@
+{
+  "values": [
+    {"value": "MAL", "description": "Mailing", "long_description": "A field for when a person has a mailing address that is different than their residence. Such as a PO Box. Maybe the same as RES or PRM or WRK."},
+    {"value": "PRM", "description": "Permanent", "long_description": "This is the address the person uses when they are not at school. Usually it is the student's parents or guardian. It is sometimes used as the address for Emergency contact for that reason. Though it cannot be guaranteed. Tends to lose meaning when not applied to a student."},
+    {"value": "RES", "description": "Residential", "long_description": "This is the address for where the person currently lives."},
+    {"value": "WRK", "description": "Work", "long_description": "This is the person's work address. Mostly used to find people who work on campus. It is of lesser value for people who do not work at BYU."}
+  ]
+}
